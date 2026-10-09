@@ -1,0 +1,9 @@
+.DS_Store
+*.crx
+*.pem
+*.zip
+.vscode/
+__pycache__/
+*.pyc
+crm-ads-columns-v*/
+nohup.out

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Le motif dit exactement ce que fait l'extension : un tableau de regie,
+       et une colonne de plus, la notre, celle qui porte le chiffre reel.
+       Jetons de la charte : creme #F5F2EC, navy #081F29, petrole #1F4D5C. -->
+  <rect width="128" height="128" rx="26" fill="#081F29"/>
+  <g fill="none" stroke="#F5F2EC" stroke-width="7" stroke-linecap="round" opacity="0.55">
+    <line x1="30" y1="38" x2="62" y2="38"/>
+    <line x1="30" y1="64" x2="62" y2="64"/>
+    <line x1="30" y1="90" x2="62" y2="90"/>
+  </g>
+  <rect x="76" y="26" width="24" height="76" rx="7" fill="#1F4D5C"/>
+  <g fill="none" stroke="#F5F2EC" stroke-width="7" stroke-linecap="round">
+    <line x1="88" y1="86" x2="88" y2="86"/>
+    <line x1="88" y1="64" x2="88" y2="64"/>
+    <line x1="88" y1="42" x2="88" y2="42"/>
+  </g>
+</svg>

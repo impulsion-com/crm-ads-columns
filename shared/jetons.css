@@ -1,0 +1,86 @@
+/* Les jetons de la charte impulsion.
+ *
+ * AUCUNE COULEUR EN DUR ailleurs que dans ce fichier. Une couleur ecrite en
+ * dur dans une feuille est une dette : elle survit au changement de theme, elle
+ * echappe au controle de contraste, et on la retrouve six mois plus tard sans
+ * savoir d ou elle vient.
+ *
+ * Le petrole est l accent UNIQUE : une seule couleur porte l action. L ocre est
+ * le seul ton hors charte, et il est reserve au statut « a verifier », c est a
+ * dire exactement aux lignes que l extension n a pas su identifier. */
+
+:root,
+:host {
+  --ac-cream: #f5f2ec;
+  --ac-cream-dark: #ece7dd;
+  --ac-cream-deeper: #e2dcce;
+  --ac-navy: #081f29;
+  --ac-navy-soft: #0f2d3a;
+  --ac-petrol: #1f4d5c;
+  --ac-olive: #5c6b3e;
+  --ac-terra: #a04733;
+  --ac-gray: #5c6773;
+
+  /* Eclaircies, tenues a 4,5:1 sur le navy. Reservees au theme sombre. */
+  --ac-petrol-light: #398eaa;
+  --ac-olive-light: #778b50;
+  --ac-terra-light: #c86953;
+
+  /* Le statut « a verifier », et rien d autre. */
+  --ac-ochre: #7b6032;
+  --ac-ochre-light: #c4a46e;
+
+  /* Jetons semantiques, theme clair. */
+  --bg-body: var(--ac-cream);
+  --bg-surface: #ffffff;
+  --bg-sunken: var(--ac-cream-dark);
+  --text: var(--ac-navy);
+  --text-dim: var(--ac-gray);
+  --accent: var(--ac-petrol);
+  --accent-contraste: var(--ac-cream);
+  --border: var(--ac-cream-deeper);
+  --positif: var(--ac-olive);
+  --negatif: var(--ac-terra);
+  --averti: var(--ac-ochre);
+
+  /* Les ombres. Ecrites ici plutot que dans la feuille du panneau : une
+     ombre est une couleur, et une couleur n a qu un seul domicile. */
+  --ombre-rail: -6px 0 24px rgb(8 31 41 / 0.08);
+  --ombre-tiroir: -10px 0 40px rgb(8 31 41 / 0.18);
+
+  /* Petites ombres des controles : le pouce d un interrupteur, l onglet choisi, la barre flottante. */
+  --ombre-pouce: 0 1px 2px rgb(8 31 41 / 0.25);
+  --ombre-onglet: 0 1px 2px rgb(8 31 41 / 0.12);
+  --ombre-barre: 0 6px 20px -6px rgb(8 31 41 / 0.22), 0 1px 2px rgb(8 31 41 / 0.08);
+
+  /* Formes et mouvement. */
+  --rayon-carte: 12px;
+  --rayon-bouton: 7px;
+  --rayon-pastille: 3px;
+  --transition: 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --police: "AcInter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  /* La serif ne touche QUE les nombres isoles. Jamais un paragraphe. */
+  --police-nombre: "AcSerif", Georgia, "Times New Roman", serif;
+}
+
+:root[data-theme="sombre"],
+:host([data-theme="sombre"]) {
+  --bg-body: var(--ac-navy);
+  --bg-surface: var(--ac-navy-soft);
+  --bg-sunken: #0a2531;
+  --text: var(--ac-cream);
+  --text-dim: #93a3ad;
+  --accent: var(--ac-petrol-light);
+  --accent-contraste: var(--ac-navy);
+  --border: #1b3d4b;
+  --positif: var(--ac-olive-light);
+  --negatif: var(--ac-terra-light);
+  --averti: var(--ac-ochre-light);
+  --ombre-rail: -6px 0 24px rgb(0 0 0 / 0.35);
+  --ombre-tiroir: -10px 0 40px rgb(0 0 0 / 0.5);
+  --ombre-pouce: 0 1px 2px rgb(0 0 0 / 0.5);
+  --ombre-onglet: 0 1px 2px rgb(0 0 0 / 0.4);
+  --ombre-barre: 0 6px 20px -6px rgb(0 0 0 / 0.6), 0 1px 2px rgb(0 0 0 / 0.4);
+}

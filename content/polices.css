@@ -1,0 +1,40 @@
+/* UNIQUEMENT les @font-face, et il y a une raison precise.
+ *
+ * Cette feuille est injectee par le champ `css` de
+ * `chrome.scripting.registerContentScripts`, ce qui la fait charger PAR
+ * L EXTENSION et non par la page. Elle echappe donc a la CSP de la page, et les
+ * .woff2 se chargent depuis chrome-extension://.
+ *
+ * Une balise <style> posee dans le DOM de facebook.com, elle, serait soumise a
+ * la CSP de facebook.com pour ses sous-ressources : les polices seraient
+ * bloquees en silence, et le panneau tomberait sur la pile systeme sans qu on
+ * comprenne pourquoi.
+ *
+ * Tout le reste du style vit dans le shadow root, ou il est a l abri du CSS de
+ * la page et reciproquement. Les @font-face, eux, doivent etre au niveau du
+ * document : une @font-face declaree dans un shadow root n est pas visible en
+ * dehors, et les navigateurs ne la resolvent pas de facon fiable. */
+
+/* Les chemins sont RELATIFS a ce fichier : Chrome les resout contre l origine
+ * de l extension pour une feuille injectee par `scripting`. Les .woff2 sont
+ * declares en `web_accessible_resources`, sans quoi la page ne pourrait pas
+ * les charger meme avec la bonne URL.
+ *
+ * `font-display: swap` et une pile de repli systeme partout : une police
+ * bloquee doit degrader vers Helvetica, jamais vers rien. */
+
+@font-face {
+  font-family: "AcInter";
+  src: url("../fonts/Inter-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AcSerif";
+  src: url("../fonts/DMSerifDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

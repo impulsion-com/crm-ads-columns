@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Colonnes CRM</title>
+    <link rel="stylesheet" href="../shared/jetons.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="tete">
+      <span class="marque"><i data-icone="colonnes"></i> Colonnes CRM</span>
+      <label class="interrupteur" title="Coupe ou rétablit l’affichage partout, tout de suite">
+        <input type="checkbox" id="actif" checked />
+        <span class="piste" aria-hidden="true"></span>
+        <span class="libelle" data-si-actif="Active" data-si-coupe="Coupée"></span>
+      </label>
+      <button class="icone-seule" id="theme" title="Changer de thème" aria-label="Changer de thème">
+        <i data-icone="reglages"></i>
+      </button>
+    </header>
+
+    <main>
+      <section class="bloc">
+        <h2>Connexion</h2>
+        <label class="champ" for="crmUrl">
+          <span>Adresse du serveur</span>
+          <input type="url" id="crmUrl" placeholder="https://mon-app.vercel.app" spellcheck="false" />
+        </label>
+        <label class="champ" for="cleApi">
+          <span>Clé d’API</span>
+          <span class="avec-bouton">
+            <input type="password" id="cleApi" placeholder="aos_…" spellcheck="false" autocomplete="off" />
+            <button class="lien" id="voir" type="button">Afficher</button>
+          </span>
+        </label>
+        <div class="ligne-actions">
+          <button class="bouton primaire" id="tester">Tester la connexion</button>
+        </div>
+        <p class="etat" id="etatConnexion" role="status"></p>
+        <p class="note">
+          Dans Agence OS : Réglages, API et MCP, nouveau jeton « Extension Chrome ». La clé est en lecture
+          seule et reste dans ce navigateur.
+        </p>
+      </section>
+
+      <section class="bloc">
+        <h2>Plateformes</h2>
+        <div id="plateformes"></div>
+        <p class="note">
+          Chrome annonce l’accès à tout le domaine. L’extension, elle, ne s’exécute que sur les pages de gestion
+          des campagnes.
+        </p>
+      </section>
+
+      <section class="bloc">
+        <h2>Attribution par défaut</h2>
+        <div class="deux">
+          <label class="champ" for="modele">
+            <span>Modèle</span>
+            <select id="modele"></select>
+          </label>
+          <label class="champ etroit" for="fenetre">
+            <span>Fenêtre</span>
+            <span class="avec-bouton">
+              <input type="number" id="fenetre" min="1" max="90" step="1" />
+              <span class="unite">jours</span>
+            </span>
+          </label>
+        </div>
+        <p class="note">Valeurs de départ. Le modèle se change ensuite depuis la barre, dans Ads Manager.</p>
+      </section>
+
+      <section class="bloc">
+        <h2>Colonnes affichées</h2>
+        <div class="onglets" id="ongletsNiveau" role="tablist"></div>
+        <div id="colonnes" class="colonnes"></div>
+        <p class="note">Le choix se retient par niveau : campagnes, ensembles et publicités n’appellent pas les mêmes chiffres.</p>
+      </section>
+
+      <section class="bloc">
+        <h2>Contrôle et dépannage</h2>
+        <label class="bascule">
+          <input type="checkbox" id="afficherNom" />
+          <span>
+            Afficher le nom de contrôle dans chaque ligne
+            <small id="noteNom"></small>
+          </span>
+        </label>
+        <label class="bascule">
+          <input type="checkbox" id="diagnostic" />
+          <span>
+            Mode diagnostic
+            <small>Surligne chaque ligne détectée et prépare un rapport à copier. À activer quand l’extension ne reconnaît plus le tableau.</small>
+          </span>
+        </label>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <button class="lien" id="viderCache">Vider le cache</button>
+      <span class="version" id="version"></span>
+    </footer>
+
+    <script src="../shared/journal.js"></script>
+    <script src="../shared/format.js"></script>
+    <script src="../shared/icons.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

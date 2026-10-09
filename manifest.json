@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Colonnes CRM pour Ads Manager",
+  "description": "Leads, rendez-vous, ventes, chiffre d'affaires et ROAS réel de ton tracking (Agence OS ou CRM), directement dans Meta Ads Manager et Google Ads.",
+  "version": "0.9.0",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Colonnes CRM"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [],
+  "optional_host_permissions": [
+    "https://adsmanager.facebook.com/*",
+    "https://business.facebook.com/*",
+    "https://www.facebook.com/*",
+    "https://ads.google.com/*",
+    "https://ads.tiktok.com/*",
+    "https://*/*",
+    "http://localhost/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "fonts/Inter-Variable.woff2",
+        "fonts/DMSerifDisplay-Regular.woff2",
+        "shared/jetons.css",
+        "content/panneau.css"
+      ],
+      "matches": [
+        "https://adsmanager.facebook.com/*",
+        "https://business.facebook.com/*",
+        "https://www.facebook.com/*",
+        "https://ads.google.com/*",
+        "https://ads.tiktok.com/*"
+      ]
+    }
+  ]
+}
